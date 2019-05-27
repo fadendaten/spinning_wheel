@@ -1,10 +1,11 @@
 class OptionalAvenger
 
-  attr_reader :pre_name, :age, :options
+  attr_reader :name, :display, :age, :options
 
-  def initialize(pre_name:, age:, options:{})
-    @pre_name = pre_name
+  def initialize(name:, age:, display: ,options:{})
+    @name = name
     @age = age
+    @display = display
     @options = options
   end
 

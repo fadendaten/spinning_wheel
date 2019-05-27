@@ -2,29 +2,33 @@ RSpec.describe SpinningWheel do
 
   SpinningWheel.define do
     fabric name: 'avenger', class_name: 'Avenger' do
-      pre_name { 'Tony' }
+      name { 'Tony' }
       age { 49 }
+      display { true }
     end
   end
 
   SpinningWheel.define do
     fabric name: 'avenger_hulk', class_name: 'Avenger' do
-      pre_name { 'Hulk' }
+      name { 'Hulk' }
       age { 48 }
+      display { true }
     end
   end
 
   SpinningWheel.define do
     fabric name: 'hash_avenger', class_name: 'HashAvenger' do
-      pre_name { 'Tony' }
+      name { 'Tony' }
       age { 49 }
+      display { true }
     end
   end
 
   SpinningWheel.define do
     fabric name: 'optional_avenger', class_name: 'OptionalAvenger' do
-      pre_name { 'Tony' }
+      name { 'Tony' }
       age { 49 }
+      display { true }
       options { {a: 'a', b: 'b'} }
     end
   end
@@ -40,7 +44,7 @@ RSpec.describe SpinningWheel do
     puts "Avenger"
     let(:fabric_name) { 'avenger' }
     let(:class_name) { 'Avenger' }
-    let(:pre_name) { 'Tony' }
+    let(:name) { 'Tony' }
     let(:age) { 49 }
 
     let(:fabric_object) { SpinningWheel.create(fabric_name) }
@@ -51,8 +55,8 @@ RSpec.describe SpinningWheel do
       end
 
       context 'attributes' do
-        it 'should hold the pre_name attribute' do
-          expect(fabric_object.pre_name).to eq(pre_name)
+        it 'should hold the name attribute' do
+          expect(fabric_object.name).to eq(name)
         end
 
         it 'should hold the age attribute' do
@@ -66,8 +70,9 @@ RSpec.describe SpinningWheel do
     puts "HashAvenger"
     let(:fabric_name) { 'hash_avenger' }
     let(:class_name) { 'HashAvenger' }
-    let(:pre_name) { 'Tony' }
+    let(:name) { 'Tony' }
     let(:age) { 49 }
+    let(:display) { true }
 
     let(:fabric_object) { SpinningWheel.create(fabric_name) }
 
@@ -77,8 +82,8 @@ RSpec.describe SpinningWheel do
       end
 
       context 'attributes' do
-        it 'should hold the pre_name attribute' do
-          expect(fabric_object.pre_name).to eq(pre_name)
+        it 'should hold the name attribute' do
+          expect(fabric_object.name).to eq(name)
         end
 
         it 'should hold the age attribute' do
@@ -91,7 +96,7 @@ RSpec.describe SpinningWheel do
   context 'simple fabric hash with optionals' do
     let!(:fabric_name) { 'optional_avenger' }
     let!(:class_name) { 'OptionalAvenger' }
-    let!(:pre_name) { 'Tony' }
+    let!(:name) { 'Tony' }
     let!(:age) { 49 }
 
     let(:fabric_object) { SpinningWheel.create(fabric_name) }
@@ -102,8 +107,8 @@ RSpec.describe SpinningWheel do
       end
 
       context 'attributes' do
-        it 'should hold the pre_name attribute' do
-          expect(fabric_object.pre_name).to eq(pre_name)
+        it 'should hold the name attribute' do
+          expect(fabric_object.name).to eq(name)
         end
 
         it 'should hold the age attribute' do
@@ -117,8 +122,8 @@ RSpec.describe SpinningWheel do
     let(:fabric_name) { 'avengers' }
     let(:class_name) { 'Group' }
     let(:child_class_name) { 'Avenger' }
-    let(:first_pre_name) { 'Tony' }
-    let(:second_pre_name) { 'Hulk' }
+    let(:first_name) { 'Tony' }
+    let(:second_name) { 'Hulk' }
     let(:first_age) { 49 }
     let(:second_age) { 48 }
 
@@ -135,8 +140,8 @@ RSpec.describe SpinningWheel do
         end
 
         context 'first' do
-          it 'should hold the pre_name attribute' do
-            expect(fabric_object.first.pre_name).to eq(first_pre_name)
+          it 'should hold the name attribute' do
+            expect(fabric_object.first.name).to eq(first_name)
           end
 
           it 'should hold the age attribute' do
@@ -145,8 +150,8 @@ RSpec.describe SpinningWheel do
         end
 
         context 'second' do
-          it 'should hold the pre_name attribute' do
-            expect(fabric_object.second.pre_name).to eq(second_pre_name)
+          it 'should hold the name attribute' do
+            expect(fabric_object.second.name).to eq(second_name)
           end
 
           it 'should hold the age attribute' do

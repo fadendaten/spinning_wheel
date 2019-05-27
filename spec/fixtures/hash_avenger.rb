@@ -1,10 +1,11 @@
 class HashAvenger
 
-  attr_reader :pre_name, :age
+  attr_reader :name, :age, :display
 
-  def initialize(pre_name:, age:)
-    @pre_name = pre_name
+  def initialize(name:, age:, display: )
+    @name = name
     @age = age
+    @display = display
   end
 
 end

@@ -19,14 +19,3 @@ module SpinningWheel
     @fabrics[fabric.name] = fabric
   end
 end
-
-    # def initialize(&block)
-    #   instance_eval(&block)
-    # end
-
-    # def fabric(options, &block)
-    #   fabric 
-    #   # fabric = SpinningWheel::Fabric.new(options)
-    #   # object = fabric.create(&block)
-    #   # register(fabric.name, object)
-    # end
